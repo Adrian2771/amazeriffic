@@ -1,0 +1,145 @@
+*{
+	box-sizing: border-box;
+}
+
+/*------------------------------header styles -------------------------------*/
+
+header{
+	background:lavender;
+}
+
+header a{
+	text-decoration:none;
+	color:red;
+}
+
+
+h1{
+	font-style: italic;
+	color:indianred;
+	padding:0; /*reset defaults*/
+	margin:0; /*reset defaults*/
+}
+
+.clearfix:before, .clearfix:after{
+	display:table;
+	content: "";
+}
+
+.clearfix:after{
+	clear:both;
+}
+
+.wrap{
+	width:80%;
+	margin:.5em auto;
+}
+
+/*-------------------------------------main styles ---------------------------*/
+
+.tabs a span{
+	display:inline-block;
+	border-radius:5px 5px 0 0;
+	width:100px;
+	margin-right:.6em;
+	padding:.4em;
+	background:#ddd;
+	text-align:center;
+}
+
+.tabs a span:hover{
+	cursor:pointer;
+}
+
+.tabs a span.active{
+	background:lightblue;
+}
+
+.tabs #input{
+	margin:.4em;
+}
+
+.content ul li{
+	list-style-type: none;
+	padding:.4em;
+}
+
+.content ul li:nth-of-type(odd){
+	background:lightcyan;
+}
+
+.content ul li:nth-of-type(even){
+	background:whitesmoke;
+}
+
+/*-------------------------------------footer styles -------------------------*/
+
+footer{
+	background: yellow;
+}
+
+.sitemap ul{
+	/*border:1px solid navy;*/
+	-webkit-padding-start:0px; /*remove indentation*/
+	width:70%;
+}
+
+.sitemap ul li{
+	list-style-type:none;
+}
+
+
+.sitemap li > a{
+	text-decoration:none;
+	color:red;
+}
+
+.contact p:nth-of-type(1){
+	font-style:italic;
+	font-weight: bold;
+	color:indianred;
+}
+/*--------------------------------------grid styles --------------------------*/
+
+@media (min-width: 768px)
+{
+	[class^="col"]{
+		padding:1em;
+	}
+	.col-md-4{
+		width:33.3333%;
+		float:left;
+		/*border:1px solid green;*/
+	}
+
+	.col-md-8{
+		width:66.6666%;
+		float:left;
+		/*border:1px solid green;*/
+	}
+
+	.col-md-6{
+		width:50%;
+		float:left;
+		padding:0;
+		/*border:1px solid green;*/
+	}
+}
+
+@media (max-width: 767px){
+	[class^="col"]{
+		padding:.5em;
+	}
+	.col-sm-6{
+		width:50%;
+		float:left;
+		padding:0;
+		/*border:1px solid green;*/
+	} 
+}
+
+.img-responsive{
+	max-width:100%;
+	height:auto;
+	display:block;
+}
