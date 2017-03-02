@@ -138,7 +138,7 @@ var main = function(toDos){
 			}
 			else{
 				if($("#input").val() !== "" && $("second-input").val() !== ""){
-					console.log("Add tab clikced, action needed imediately!");
+					console.log("Add tab clicked, action needed imediately!");
 					var temp = {};
 					temp.description = $("#input").val();
 					temp.tags = ($("#second-input").val()).split(",");
