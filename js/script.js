@@ -2,7 +2,7 @@
 
 
 
-var main = function(args){
+var main = function(toDos){
 	"use strict";
 	/* var toDos = [
 	"Finish writing this book",
@@ -27,11 +27,7 @@ var main = function(args){
 	}*/
 
 	// version 3
-	
-	var toDos = args.map(function(elem){
-		return elem.description;
-	});
-	
+
 	$(".tabs span").toArray().forEach(function(element){
 		$(element).on("click", function(){
 
@@ -44,7 +40,7 @@ var main = function(args){
 			function AuxFunc(){
 				var $temp = $("<ul>");
 				toDos.forEach(function(todo){
-				$temp.append($("<li>").text(todo));
+				$temp.append($("<li>").text(todo.description));
 				});
 				$("main .content").append($temp);
 			}
@@ -54,7 +50,7 @@ var main = function(args){
 				var $len = toDos.length;
 				var $temp = $("<ul>");
 				for(var i = $len - 1; i >= 0; i--){
-					$temp.append($("<li>").text(toDos[i]));
+					$temp.append($("<li>").text(toDos[i].description));
 				}
 				$("main .content").append($temp);
 			}
@@ -124,7 +120,7 @@ var main = function(args){
 					return arrOfNewObj;
 				};
 
-				var organizedByTags = ReturnOrganizedByTabs(args);
+				var organizedByTags = ReturnOrganizedByTabs(toDos);
 
 				organizedByTags.forEach(function(elem){
 					var $tagName = $("<h3>").text(elem.name);
@@ -141,9 +137,15 @@ var main = function(args){
 				});
 			}
 			else{
-				if($("#input").val() !== ""){
+				if($("#input").val() !== "" && $("second-input").val() !== ""){
 					console.log("Add tab clikced, action needed imediately!");
-					toDos.push($("#input").val());
+					var temp = {};
+					temp.description = $("#input").val();
+					temp.tags = ($("#second-input").val()).split(",");
+					toDos.push(temp);
+					console.log(toDos);
+					$("#input").val("");
+					$("#second-input").val("");
 					AuxFunc();
 				}
 			}
@@ -156,7 +158,7 @@ var main = function(args){
 
 $(document).ready(function(){
 	$.getJSON("json/todos1.json", function(arg){
-		//console.log(arg);
+		console.log(arg);
 		main(arg);
 		
 	});
